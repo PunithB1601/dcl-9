@@ -1,0 +1,43 @@
+package com.dcl;
+
+import java.util.Random;
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.dcl.controller.UserController;
+import com.dcl.dto.User;
+import com.dcl.request.CreateUserRequest;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context=SpringApplication.run(Application.class, args);
+		UserController controller=context.getBean(UserController.class);
+		
+		//creating scanner obj
+		Scanner sc=new Scanner(System.in);
+		//to generate Id
+		Random rd=new Random();
+		CreateUserRequest request=new CreateUserRequest();
+		
+		//saving user data 
+		request.setId(rd.nextInt(10));
+		System.out.println("Enter ur name:");
+		request.setName(sc.next());
+		System.out.println("Enter ur email:");
+		request.setEmail(sc.next());
+		
+		User u=controller.saveUser(request);
+		if(u!=null) {
+			System.out.println("Data saved successfully!");
+		}
+		
+		
+		
+	}
+
+}

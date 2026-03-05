@@ -1,0 +1,22 @@
+package com.dcl.serviceimpl;
+
+import com.dcl.dto.User;
+import com.dcl.service.UserService;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public User saveUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

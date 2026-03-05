@@ -1,0 +1,14 @@
+package com.dcl.entity;
+
+
+public class Book {
+
+	private Integer bookId;
+	
+	private String bookName;
+	
+	private String author;
+	
+	private Double price;
+	
+}

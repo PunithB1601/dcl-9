@@ -1,0 +1,18 @@
+package com.dcl.sim;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Airtel implements Sim {
+
+	public Airtel() {
+		System.out.println("Airtel constructor");
+	}
+
+	@Override
+	public boolean activate() {
+		System.out.println("Airtel sim activated");
+		return true;
+	}
+
+}

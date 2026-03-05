@@ -1,0 +1,35 @@
+package com.dcl.serviceimpl;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.dcl.dto.User;
+import com.dcl.request.CreateUserRequest;
+import com.dcl.service.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	public static Map<Integer,User> userInfo=new HashMap<>();  
+	@Override
+	public User saveUser(CreateUserRequest request) {
+		User u=new User();
+		u.setId(request.getId());
+		u.setName(request.getName());
+		u.setEmail(request.getEmail());
+		userInfo.put(u.getId(), u);
+		return u;
+	}
+
+	@Override
+	public User getUserById(Integer id) {
+		Optional<User> user=userInfo.get(id);
+		return u;
+	}
+
+	
+
+}

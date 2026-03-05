@@ -1,0 +1,9 @@
+package com.dcl.service;
+
+import com.dcl.dto.User;
+
+public interface UserService {
+
+	public User saveUser();
+	public User getUser();
+}

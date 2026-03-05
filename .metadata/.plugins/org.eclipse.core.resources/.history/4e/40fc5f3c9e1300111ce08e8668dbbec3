@@ -1,0 +1,14 @@
+package com.dcl.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.dcl.dto.User;
+
+@Controller
+public class UserController {
+
+	public User saveUser() {
+		return null;
+	}
+
+}

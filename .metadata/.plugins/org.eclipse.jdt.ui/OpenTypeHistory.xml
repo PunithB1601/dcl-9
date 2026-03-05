@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=01_EngineApp/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.dcl.engine{IEngine.java[IEngine" modifiers="513" timestamp="1770117919714"/>
+    <typeInfo handle="=02_EngineApp_Annotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.dcl.dependent{IEngine.java[IEngine" modifiers="513" timestamp="1770290081811"/>
+    <typeInfo handle="=03_SimApp_Annotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.dcl.dependent{ISim.java[ISim" modifiers="513" timestamp="1770374971432"/>
+</typeInfoHistroy>

@@ -1,0 +1,30 @@
+package com.dcl.sim;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class SimService {
+	
+	@Autowired
+	private Sim sim; //airtel obj
+	
+	public SimService() {
+		System.out.println("Sim service 0-param constructor");
+	}
+	
+	public SimService(Sim sim) {
+		this.sim=sim;
+	}
+	
+	public void call() {
+		boolean status=sim.activate();
+		if(status) {
+			System.out.println("Calling feature enabled");
+		}
+		else {
+			System.out.println("No connection");
+		}
+	}
+	
+}

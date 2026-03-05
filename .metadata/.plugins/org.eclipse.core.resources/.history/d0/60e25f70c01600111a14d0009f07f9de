@@ -1,0 +1,23 @@
+package com.dcl;
+
+import java.time.LocalDate;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.dcl.entity.Book;
+import com.dcl.repo.BookRepo;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context=SpringApplication.run(Application.class, args);
+		 BookRepo repository=context.getBean(BookRepo.class);
+		 
+		Book b1=new Book(1,"Harry-Potter","JK Rowling",500.0,LocalDate.now());
+		
+	}
+
+}

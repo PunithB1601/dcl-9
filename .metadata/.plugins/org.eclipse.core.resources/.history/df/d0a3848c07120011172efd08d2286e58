@@ -1,0 +1,13 @@
+package com.dcl.java;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class Car {
+
+	private Engine engine;
+	public Car() {
+		System.out.println("0-param");
+	}
+
+}

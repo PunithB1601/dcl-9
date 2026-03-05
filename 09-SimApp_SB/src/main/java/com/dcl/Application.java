@@ -1,0 +1,18 @@
+package com.dcl;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.dcl.sim.SimService;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context =SpringApplication.run(Application.class, args);
+		//System.out.println(context.getClass().getName()); 
+		context.getBean(SimService.class).call();
+	}
+
+}

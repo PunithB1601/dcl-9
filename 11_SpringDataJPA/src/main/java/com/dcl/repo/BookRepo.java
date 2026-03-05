@@ -1,0 +1,28 @@
+package com.dcl.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.dcl.entity.Book;
+
+@Repository
+public interface BookRepo extends CrudRepository<Book, Integer>{
+	
+	 @Query("from book")
+	 List<Book> fetchAll();	
+	 
+	//SELECT * FROM BOOK WHERE AUTHOR=?;
+	 List<Book> findByAuthor(String author);
+	 
+	//SELECT * FROM BOOK WHERE PRICE>=?;
+	 List<Book> findByPriceGreaterThanEqual(Double price);
+	 
+	//SELECT * FROM BOOK WHERE BOOK_NAME LIKE ?; 
+	 List<Book> findByBookNameStartsWith(char a);
+	 
+	//SELECT * FROM BOOK WHERE BOOK_NAME=? AND AUTHOR=?; 
+	 List<Book> findByBookNameAndAuthor(String bookName, String author);
+}
