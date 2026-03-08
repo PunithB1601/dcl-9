@@ -1,9 +1,0 @@
-package com.dcl.request;
-
-public class CreateUserRequest {
-
-	public CreateUserRequest() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

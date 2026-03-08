@@ -1,9 +1,0 @@
-package com.dcl.sim;
-
-public class SimService {
-
-	public SimService() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
