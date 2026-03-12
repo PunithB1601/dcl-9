@@ -1,10 +1,13 @@
 package com.dcl.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +28,10 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getAllProduct() {
-		return prepo.findAll();
+		Product p=new Product(); //entity  class obj
+		p.setPBrand("Puma");
+		Example<Product> example=Example.of(p);
+		return prepo.findAll(example);
 	}
 
 	@Override
@@ -47,9 +53,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getAllProduct(Integer sizePerPage, Integer pageNum) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PageRequest p=PageRequest.of(pageNum-1, sizePerPage,Sort.by("price").descending());
+		Page<Product> page=prepo.findAll(p);
+		return page.stream().collect(Collectors.toList());
 	}
-
-	
 }

@@ -71,6 +71,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\dcl-9\dcl-9"/>
 			<item value="E:\Blog-app\Blog-app"/>
 		</list>
 		<list key="projectNameTemplate">
