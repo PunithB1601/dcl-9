@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dcl.entity.Movie;
+import com.dcl.entity.Platform;
 import com.dcl.iservice.MovieService;
 import com.dcl.repo.MoviesRepo;
+import com.dcl.repo.PlatformRepo;
 
 @Service
 public class MovieServiceImpl implements MovieService {
 
 	@Autowired
 	private MoviesRepo mrepo;
+	
+	@Autowired
+	private PlatformRepo prepo;
 
 	@Override
 	public Movie addMovie(Movie m) {
@@ -27,10 +32,5 @@ public class MovieServiceImpl implements MovieService {
 		return mrepo.findById(m).orElse(null);
 	}
 
-	@Override
-	public List<Movie> getMovies(String Platform) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

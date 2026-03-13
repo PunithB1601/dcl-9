@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.dcl.entity.Subscription;
 @Repository
 public interface SubscriptionRepo extends JpaRepository<Subscription, Integer>{
-
+	
 }
