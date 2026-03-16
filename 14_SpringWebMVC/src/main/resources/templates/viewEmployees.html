@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+
+<h2 class="text-center mb-4">Employee List</h2>
+<h4 th:text="${success}" class="text-success"></h4>
+<a th:href="@{/register}" class="btn btn-success mb-3">
+Add Employee
+</a>
+			<table class="table table-bordered table-striped">
+			<thead class="table-info">
+			<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Update Account</th>
+			<th>Delete Account</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="emp : ${empList}">
+			<td th:text="${emp.eid}"></td>
+			<td th:text="${emp.name}"></td>
+			<td th:text="${emp.mail}"></td>
+			<td>
+				<a th:href="@{/getEmp/{eid}(eid=${emp.eid})}" class="btn btn-warning btn-sm">Update</a>
+			</td>
+			<td>
+				<a th:href="@{/delete/{eid}(eid=${emp.eid})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+			</td>
+			</tr>
+           </tbody>
+		   </table>
+
+	</div>
+</body>
+</html>
