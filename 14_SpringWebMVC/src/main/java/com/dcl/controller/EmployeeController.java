@@ -5,16 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dcl.entity.Employee;
 import com.dcl.iservice.EmployeeService;
 
+import jakarta.validation.Valid;
+
 
 @Controller
+@RequestMapping("/empapp")
 public class EmployeeController {
 	
 	@Autowired
@@ -27,7 +34,11 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/save")
-	public String saveEmployee(@ModelAttribute Employee e, Model m) {
+	public String saveEmployee(@Validated  @ModelAttribute Employee e,BindingResult result ,Model m) {
+		if(result.hasErrors()) {
+			return "register";
+		}
+		
 		e=eservice.register(e);
 		m.addAttribute("success","Employee - "+e.getEid()+" added successfully!");
 		return "register";
@@ -51,13 +62,13 @@ public class EmployeeController {
 	public String updateEmployee(@ModelAttribute Employee e, Model m) {
 	    eservice.updateEmployee(e);
 	    m.addAttribute("success", "Record modified!");
-	    return "redirect:/employees";
+	    return "redirect:/empapp/employees";
 	}
 	
 	@GetMapping("/delete/{eid}")
 	public String deleteEmployee(@PathVariable Integer eid, Model m) {
 		eservice.deleteEmployee(eid);
 		m.addAttribute("success","Employee deleted!");
-		return "redirect:/employees";
+		return "redirect:/empapp/employees";
 	}
 }

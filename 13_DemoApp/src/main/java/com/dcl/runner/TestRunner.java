@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 import com.dcl.repo.PlatformRepo;
+import com.dcl.service.EmailService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -24,8 +26,10 @@ import com.dcl.iservice.UserService;
 @Component
 public class TestRunner implements CommandLineRunner {
 
-    private final PlatformRepo platformRepo;
-
+    
+	@Autowired
+	private EmailService eservice;
+    
 	@Autowired
 	private UserService uservice;
 	
@@ -44,10 +48,7 @@ public class TestRunner implements CommandLineRunner {
 	@Autowired
 	private GenreService gservice;
 
-    TestRunner(PlatformRepo platformRepo) {
-        this.platformRepo = platformRepo;
-    }
-	
+    
 	@Override
 	public void run(String... args) throws Exception {
 		Scanner sc=new Scanner(System.in);
@@ -91,17 +92,20 @@ public class TestRunner implements CommandLineRunner {
 		 */
 		
 		/*
-		 * Genre g1=new Genre(); g1.setName("Action"); Genre g2=new Genre();
-		 * g2.setName("Drama"); Genre g3=new Genre(); g3.setName("Thriller");
-		 * gservice.addGenre(g1); gservice.addGenre(g2); gservice.addGenre(g3);
-		 * 
-		 * Movie m=mservice.getMoviesById(5); m.setGenres(Arrays.asList(g1,g2));
-		 * mservice.addMovie(m);
+		 Genre g1=new Genre(); g1.setName("Action"); Genre g2=new Genre();
+		 g2.setName("Drama"); Genre g3=new Genre(); g3.setName("Thriller");
+		 gservice.addGenre(g1); gservice.addGenre(g2); gservice.addGenre(g3);
+		  
+		 Movie m=mservice.getMoviesById(5); m.setGenres(Arrays.asList(g1,g2));
+		 mservice.addMovie(m);
 		 */
 		
-		System.out.println("Enter the platform:");
+		//System.out.println("Enter the platform:");
 		//mservice.getMovies(sc.next()).forEach(System.out::println);
-		platformService.getAllMovies(sc.next()).forEach(System.out::println);
+		//platformService.getAllMovies(sc.next()).forEach(System.out::println);
+		 
+		 eservice.sendMail("punith@dheecodinglab.com");
+		 System.out.println("Mail sent!");
 	}
 
 }
